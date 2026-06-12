@@ -1,0 +1,38 @@
+---
+import GitHubIcon from '../assets/icons/github.svg';
+import LinkedInIcon from '../assets/icons/linkedin.svg';
+---
+
+<section class="pt-16 pb-20 sm:pt-24" aria-label="Introduction">
+  <h1 class="text-4xl font-semibold tracking-tight text-neutral-900 sm:text-5xl">Samip</h1>
+  <p class="mt-3 text-lg text-neutral-500">Product-minded Software Engineer</p>
+  <p class="mt-6 max-w-prose text-lg leading-relaxed">
+    I build software that solves real problems for real users. Product thinking up front, solid
+    backend engineering underneath.
+  </p>
+
+  <dl class="mt-10 flex flex-wrap gap-x-12 gap-y-4 text-sm">
+    <div>
+      <dt class="meta-label">Location</dt>
+      <dd class="mt-1.5 text-neutral-800">Sydney, Australia</dd>
+    </div>
+    <div>
+      <dt class="meta-label">Email</dt>
+      {/* Display-only by design: no mailto, no raw user@domain anywhere. */}
+      <dd class="mt-1.5 text-neutral-800">callmesamip[at]gmail[dot]com</dd>
+    </div>
+    <div>
+      <dt class="meta-label">Elsewhere</dt>
+      <dd class="mt-1.5 flex gap-5">
+        <a href="https://github.com/samipsamip" class="link-quiet inline-flex items-center gap-1.5" rel="me">
+          <GitHubIcon width={16} height={16} aria-hidden="true" />
+          GitHub<span aria-hidden="true"> ↗</span>
+        </a>
+        <a href="https://www.linkedin.com/in/sam1p/" class="link-quiet inline-flex items-center gap-1.5" rel="me">
+          <LinkedInIcon width={16} height={16} aria-hidden="true" />
+          LinkedIn<span aria-hidden="true"> ↗</span>
+        </a>
+      </dd>
+    </div>
+  </dl>
+</section>

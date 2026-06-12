@@ -1,0 +1,52 @@
+---
+import TypeScript from '../assets/icons/typescript.svg';
+import JavaScript from '../assets/icons/javascript.svg';
+import Sql from '../assets/icons/sql.svg';
+import NodeJs from '../assets/icons/nodejs.svg';
+import React from '../assets/icons/react.svg';
+import AstroLogo from '../assets/icons/astro.svg';
+import Tailwind from '../assets/icons/tailwind.svg';
+import PostgreSql from '../assets/icons/postgresql.svg';
+import MongoDb from '../assets/icons/mongodb.svg';
+import GoogleCloud from '../assets/icons/googlecloud.svg';
+import Docker from '../assets/icons/docker.svg';
+import Terraform from '../assets/icons/terraform.svg';
+import Html from '../assets/icons/html.svg';
+import Css from '../assets/icons/css.svg';
+import Vercel from '../assets/icons/vercel.svg';
+import Go from '../assets/icons/go.svg';
+
+interface Props {
+  name: string;
+  size?: number;
+}
+
+const { name, size = 16 } = Astro.props;
+
+const icons: Record<string, typeof TypeScript> = {
+  TypeScript,
+  JavaScript,
+  SQL: Sql,
+  'Node.js': NodeJs,
+  React,
+  Astro: AstroLogo,
+  'Tailwind CSS': Tailwind,
+  PostgreSQL: PostgreSql,
+  MongoDB: MongoDb,
+  'Google Cloud': GoogleCloud,
+  Docker,
+  Terraform,
+  HTML: Html,
+  CSS: Css,
+  Vercel,
+  Go,
+};
+
+// Techs without an icon render as the label alone.
+const Icon = icons[name];
+---
+
+<span class="inline-flex items-center gap-2">
+  {Icon && <Icon width={size} height={size} aria-hidden="true" />}
+  <span>{name}</span>
+</span>

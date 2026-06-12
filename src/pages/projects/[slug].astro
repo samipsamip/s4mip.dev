@@ -1,0 +1,94 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import Tech from '../../components/Tech.astro';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { title, description, problem, role, stack, github, live, cover, coverAlt } = project.data;
+const { Content } = await render(project);
+---
+
+<Base title={`${title} · Case study · Samip Pokharel`} description={description}>
+  <article class="py-12 sm:py-16">
+    <a href="/#projects" class="text-sm text-neutral-500 transition-colors hover:text-neutral-900">
+      <span aria-hidden="true">← </span>All projects
+    </a>
+
+    <header class="mt-10">
+      <p class="section-label">Case study</p>
+      <h1 class="mt-4 text-3xl font-semibold tracking-tight text-neutral-900 sm:text-4xl">{title}</h1>
+      <p class="mt-4 max-w-prose text-lg leading-relaxed text-neutral-500">{description}</p>
+      {
+        (github || live) && (
+          <p class="mt-6 flex gap-5 text-sm">
+            {github && (
+              <a href={github} class="link-quiet">
+                GitHub<span aria-hidden="true"> ↗</span>
+              </a>
+            )}
+            {live && (
+              <a href={live} class="link-quiet">
+                Live site<span aria-hidden="true"> ↗</span>
+              </a>
+            )}
+          </p>
+        )
+      }
+    </header>
+
+    {
+      cover && (
+        <Image
+          src={cover}
+          alt={coverAlt ?? `Screenshot of ${title}`}
+          class="mt-12 rounded-md border border-neutral-200"
+          widths={[640, 1280]}
+          sizes="(max-width: 896px) 100vw, 848px"
+        />
+      )
+    }
+
+    <section class="mt-14 border-t border-neutral-200 pt-12" aria-labelledby="problem-heading">
+      <h2 id="problem-heading" class="section-label">The problem</h2>
+      <p class="mt-6 max-w-prose leading-relaxed">{problem}</p>
+    </section>
+
+    <section class="mt-14 border-t border-neutral-200 pt-12" aria-labelledby="solution-heading">
+      <h2 id="solution-heading" class="section-label">The solution</h2>
+      <div class="prose-body mt-6 max-w-prose">
+        <Content />
+      </div>
+    </section>
+
+    {
+      role && (
+        <section class="mt-14 border-t border-neutral-200 pt-12" aria-labelledby="role-heading">
+          <h2 id="role-heading" class="section-label">My role</h2>
+          <p class="mt-6 max-w-prose leading-relaxed">{role}</p>
+        </section>
+      )
+    }
+
+    <section class="mt-14 border-t border-neutral-200 pt-12" aria-labelledby="stack-heading">
+      <h2 id="stack-heading" class="section-label">Tech stack</h2>
+      <ul class="mt-6 flex flex-wrap gap-x-6 gap-y-3 text-sm text-neutral-600">
+        {
+          stack.map((tech) => (
+            <li>
+              <Tech name={tech} size={18} />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </article>
+</Base>

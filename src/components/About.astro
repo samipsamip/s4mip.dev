@@ -1,0 +1,45 @@
+---
+import Tech from './Tech.astro';
+---
+
+<section id="about" class="scroll-mt-8 border-t border-neutral-200 py-16" aria-labelledby="about-heading">
+  <h2 id="about-heading" class="section-label">About</h2>
+  <div class="mt-8 grid gap-10 md:grid-cols-2">
+    <div class="space-y-4 leading-relaxed">
+      <p>
+        I'm a software engineer based in Sydney. Most of my time goes into backend work: Node.js
+        and TypeScript services, data modelling in PostgreSQL and MongoDB, and infrastructure on
+        Google Cloud.
+      </p>
+      <p>
+        Lately, that time has gone into <a href="https://uplerr.com" class="link-quiet">Uplerr</a>,
+        an AI-powered job-search platform that's live today. It comes from a simple conviction: job
+        seekers deserve to know exactly where they stand before they apply.
+      </p>
+      <p>
+        I approach software from the user's side of the screen first. The engineering exists to
+        serve the product, which is also why I care about leaving code cleaner than I found it.
+      </p>
+    </div>
+    <dl class="space-y-5 text-sm md:pl-10">
+      <div>
+        <dt class="meta-label">Now</dt>
+        <dd class="mt-1.5 leading-relaxed text-neutral-700">
+          Working and building. Uplerr is live; I'm shaping what it becomes next.
+        </dd>
+      </div>
+      <div>
+        <dt class="meta-label">Learning</dt>
+        <dd class="mt-1.5 leading-relaxed text-neutral-700">
+          System design that stays simple as it grows, and <Tech name="Go" size={18} />.
+        </dd>
+      </div>
+      <div>
+        <dt class="meta-label">Care about</dt>
+        <dd class="mt-1.5 leading-relaxed text-neutral-700">
+          Efficient, scalable software that people actually enjoy using.
+        </dd>
+      </div>
+    </dl>
+  </div>
+</section>

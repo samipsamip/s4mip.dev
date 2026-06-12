@@ -1,0 +1,32 @@
+---
+import Tech from './Tech.astro';
+
+const groups = [
+  { name: 'Languages', items: ['TypeScript', 'JavaScript', 'SQL'] },
+  { name: 'Frameworks', items: ['Node.js', 'React', 'Astro', 'Tailwind CSS'] },
+  { name: 'Databases', items: ['PostgreSQL', 'MongoDB'] },
+  { name: 'Tools', items: ['Google Cloud', 'Docker', 'Terraform'] },
+];
+---
+
+<section id="skills" class="scroll-mt-8 border-t border-neutral-200 py-16" aria-labelledby="skills-heading">
+  <h2 id="skills-heading" class="section-label">Skills</h2>
+  <dl class="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 lg:grid-cols-4">
+    {
+      groups.map((group) => (
+        <div>
+          <dt class="text-sm font-medium text-neutral-900">{group.name}</dt>
+          <dd class="mt-3">
+            <ul class="space-y-2 text-sm text-neutral-600">
+              {group.items.map((item) => (
+                <li>
+                  <Tech name={item} />
+                </li>
+              ))}
+            </ul>
+          </dd>
+        </div>
+      ))
+    }
+  </dl>
+</section>

@@ -1,0 +1,91 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/inter';
+
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --color-accent: #b45309;
+}
+
+@layer base {
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply bg-neutral-50 text-neutral-700 antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-neutral-50);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+@utility link-quiet {
+  @apply text-neutral-800 underline decoration-neutral-300 underline-offset-4 transition-colors hover:decoration-(--color-accent) hover:text-neutral-950;
+}
+
+@utility section-label {
+  @apply font-mono text-xs uppercase tracking-[0.2em] text-(--color-accent);
+}
+
+@utility meta-label {
+  @apply font-mono text-xs uppercase tracking-[0.15em] text-neutral-400;
+}
+
+/* Markdown body on case-study and blog pages */
+.prose-body p {
+  @apply mt-5 leading-relaxed text-neutral-700 first:mt-0;
+}
+
+.prose-body a {
+  @apply link-quiet;
+}
+
+.prose-body strong {
+  @apply font-medium text-neutral-900;
+}
+
+.prose-body h2 {
+  @apply mt-10 text-xl font-semibold tracking-tight text-neutral-900;
+}
+
+.prose-body h3 {
+  @apply mt-8 text-lg font-medium text-neutral-900;
+}
+
+.prose-body ul,
+.prose-body ol {
+  @apply mt-5 space-y-1.5 pl-5;
+}
+
+.prose-body ul {
+  @apply list-disc;
+}
+
+.prose-body ol {
+  @apply list-decimal;
+}
+
+.prose-body blockquote {
+  @apply mt-5 border-l-2 border-(--color-accent) pl-4 text-neutral-600 italic;
+}
+
+.prose-body code {
+  @apply rounded bg-neutral-200/60 px-1.5 py-0.5 font-mono text-[0.85em] text-neutral-800;
+}
+
+.prose-body pre {
+  @apply mt-5 overflow-x-auto rounded-md p-4 text-sm;
+}
+
+.prose-body pre code {
+  @apply bg-transparent p-0 text-inherit;
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://s4mip.dev/sitemap-index.xml

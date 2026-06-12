@@ -1,0 +1,37 @@
+---
+import GitHubIcon from '../assets/icons/github.svg';
+import LinkedInIcon from '../assets/icons/linkedin.svg';
+---
+
+<section id="contact" class="scroll-mt-8 border-t border-neutral-200 py-16" aria-labelledby="contact-heading">
+  <h2 id="contact-heading" class="section-label">Contact</h2>
+  <p class="mt-8 max-w-prose leading-relaxed">
+    The fastest way to reach me is email. I'm always happy to talk about interesting problems,
+    products, and backend work.
+  </p>
+  <dl class="mt-10 grid gap-8 sm:grid-cols-3">
+    <div>
+      <dt class="meta-label">Email</dt>
+      {/* Display-only by design: no mailto, no raw user@domain anywhere. */}
+      <dd class="mt-1.5 text-sm font-medium text-neutral-900">callmesamip[at]gmail[dot]com</dd>
+    </div>
+    <div>
+      <dt class="meta-label">GitHub</dt>
+      <dd class="mt-1.5 text-sm">
+        <a href="https://github.com/samipsamip" class="link-quiet inline-flex items-center gap-1.5" rel="me">
+          <GitHubIcon width={16} height={16} aria-hidden="true" />
+          github.com/samipsamip<span aria-hidden="true"> ↗</span>
+        </a>
+      </dd>
+    </div>
+    <div>
+      <dt class="meta-label">LinkedIn</dt>
+      <dd class="mt-1.5 text-sm">
+        <a href="https://www.linkedin.com/in/sam1p/" class="link-quiet inline-flex items-center gap-1.5" rel="me">
+          <LinkedInIcon width={16} height={16} aria-hidden="true" />
+          linkedin.com/in/sam1p<span aria-hidden="true"> ↗</span>
+        </a>
+      </dd>
+    </div>
+  </dl>
+</section>

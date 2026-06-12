@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Projects from '../components/Projects.astro';
+import About from '../components/About.astro';
+import Writing from '../components/Writing.astro';
+import Skills from '../components/Skills.astro';
+import Contact from '../components/Contact.astro';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Samip Pokharel',
+  alternateName: 'Samip',
+  jobTitle: 'Software Engineer',
+  description:
+    'Product-minded software engineer in Sydney, Australia, specialising in Node.js, TypeScript and backend systems.',
+  url: 'https://s4mip.dev',
+  sameAs: ['https://github.com/samipsamip', 'https://www.linkedin.com/in/sam1p/'],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Sydney',
+    addressRegion: 'NSW',
+    addressCountry: 'AU',
+  },
+  knowsAbout: [
+    'Software Engineering',
+    'Backend Development',
+    'Node.js',
+    'TypeScript',
+    'React',
+    'PostgreSQL',
+    'MongoDB',
+    'Google Cloud',
+    'System Design',
+  ],
+};
+---
+
+<Base
+  title="Samip Pokharel · Software Engineer in Sydney"
+  description="Samip Pokharel is a product-minded software engineer in Sydney, Australia, specialising in Node.js, TypeScript and backend systems. Builder of Uplerr, an AI-powered job-search platform."
+  schema={schema}
+>
+  <Hero />
+  <Projects />
+  <About />
+  <Skills />
+  <Writing />
+  <Contact />
+</Base>

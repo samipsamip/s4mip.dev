@@ -1,0 +1,69 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Optional schema.org JSON-LD object, serialized into the head. */
+  schema?: Record<string, unknown>;
+}
+
+const { title, description, schema } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Samip Pokharel" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#fafafa" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Samip Pokharel" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="generator" content={Astro.generator} />
+    {schema && <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />}
+  </head>
+  <body class="flex min-h-dvh flex-col">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-neutral-50 focus:px-4 focus:py-2 focus:text-neutral-900"
+    >
+      Skip to content
+    </a>
+
+    <header class="mx-auto w-full max-w-4xl px-6">
+      <nav class="flex items-baseline justify-between py-8" aria-label="Main">
+        <a href="/" class="font-medium text-neutral-900 transition-colors hover:text-(--color-accent)">
+          Samip
+        </a>
+        <ul class="flex gap-6 text-sm">
+          <li><a href="/#projects" class="text-neutral-500 transition-colors hover:text-neutral-900">Projects</a></li>
+          <li><a href="/blog/" class="text-neutral-500 transition-colors hover:text-neutral-900">Blog</a></li>
+          <li><a href="/#about" class="text-neutral-500 transition-colors hover:text-neutral-900">About</a></li>
+          <li><a href="/#contact" class="text-neutral-500 transition-colors hover:text-neutral-900">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main" class="mx-auto w-full max-w-4xl flex-1 px-6">
+      <slot />
+    </main>
+
+    <footer class="mx-auto w-full max-w-4xl px-6">
+      <div class="border-t border-neutral-200 py-8 text-sm text-neutral-400">
+        <p>&copy; {new Date().getFullYear()} Samip Pokharel</p>
+      </div>
+    </footer>
+  </body>
+</html>

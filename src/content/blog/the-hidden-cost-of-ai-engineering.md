@@ -1,7 +1,7 @@
 ---
 title: The Hidden Cost of AI Engineering
 description: AI is powerful - but is it all sparkles?
-date: 2023-06-12
+date: 2026-06-12
 ---
 
 > Most AI demos look magical. The first production invoice looks usually horrifying.

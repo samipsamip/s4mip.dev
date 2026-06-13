@@ -1,5 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
+import PenLineIcon from '../assets/icons/pen-line.svg';
+import NavArrow from './NavArrow.astro';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
@@ -10,7 +12,10 @@ const formatDate = (date: Date) =>
 ---
 
 <section id="writing" class="scroll-mt-8 border-t border-neutral-200 py-16" aria-labelledby="writing-heading">
-  <h2 id="writing-heading" class="section-label">Writing</h2>
+  <h2 id="writing-heading" class="section-label flex items-center gap-2">
+    <PenLineIcon width={14} height={14} aria-hidden="true" />
+    Writing
+  </h2>
   <ul class="mt-10 space-y-6">
     {
       posts.map((post) => (
@@ -23,7 +28,7 @@ const formatDate = (date: Date) =>
             </p>
             <h3 class="font-medium">
               <a href={`/blog/${post.id}/`} class="link-quiet">
-                {post.data.title}<span aria-hidden="true"> →</span>
+                {post.data.title}<NavArrow />
               </a>
             </h3>
           </article>
@@ -32,6 +37,6 @@ const formatDate = (date: Date) =>
     }
   </ul>
   <p class="mt-8 text-sm">
-    <a href="/blog/" class="link-quiet font-medium">All posts<span aria-hidden="true"> →</span></a>
+    <a href="/blog/" class="link-quiet font-medium">All posts<NavArrow /></a>
   </p>
 </section>

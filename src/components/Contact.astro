@@ -1,6 +1,7 @@
 ---
 import GitHubIcon from '../assets/icons/github.svg';
 import LinkedInIcon from '../assets/icons/linkedin.svg';
+import ExternalArrow from './ExternalArrow.astro';
 ---
 
 <section id="contact" class="scroll-mt-8 border-t border-neutral-200 py-16" aria-labelledby="contact-heading">
@@ -20,7 +21,7 @@ import LinkedInIcon from '../assets/icons/linkedin.svg';
       <dd class="mt-1.5 text-sm">
         <a href="https://github.com/samipsamip" class="link-quiet inline-flex items-center gap-1.5" rel="me">
           <GitHubIcon width={16} height={16} aria-hidden="true" />
-          github.com/samipsamip<span aria-hidden="true"> ↗</span>
+          github.com/samipsamip<ExternalArrow />
         </a>
       </dd>
     </div>
@@ -29,7 +30,7 @@ import LinkedInIcon from '../assets/icons/linkedin.svg';
       <dd class="mt-1.5 text-sm">
         <a href="https://www.linkedin.com/in/sam1p/" class="link-quiet inline-flex items-center gap-1.5" rel="me">
           <LinkedInIcon width={16} height={16} aria-hidden="true" />
-          linkedin.com/in/sam1p<span aria-hidden="true"> ↗</span>
+          linkedin.com/in/sam1p<ExternalArrow />
         </a>
       </dd>
     </div>

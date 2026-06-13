@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import NavArrow from '../../components/NavArrow.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -35,7 +36,7 @@ const schema = {
 <Base title={`${title} · Samip Pokharel`} description={description} schema={schema}>
   <article class="py-12 sm:py-16">
     <a href="/blog/" class="text-sm text-neutral-500 transition-colors hover:text-neutral-900">
-      <span aria-hidden="true">← </span>All posts
+      <NavArrow direction="left" />All posts
     </a>
 
     <header class="mt-10">

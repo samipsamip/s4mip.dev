@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import Tech from './Tech.astro';
+import ExternalArrow from './ExternalArrow.astro';
+import NavArrow from './NavArrow.astro';
 
 const projects = (await getCollection('projects')).sort(
   (a, b) => a.data.order - b.data.order
@@ -48,18 +50,18 @@ const projects = (await getCollection('projects')).sort(
 
             <p class="mt-4 flex gap-5 text-sm">
               <a href={`/projects/${project.id}/`} class="link-quiet font-medium">
-                View case study<span aria-hidden="true"> →</span>
+                View case study<NavArrow />
                 <span class="sr-only"> for {project.data.title}</span>
               </a>
               {project.data.github && (
                 <a href={project.data.github} class="link-quiet">
-                  GitHub<span aria-hidden="true"> ↗</span>
+                  GitHub<ExternalArrow />
                   <span class="sr-only"> repository for {project.data.title}</span>
                 </a>
               )}
               {project.data.live && (
                 <a href={project.data.live} class="link-quiet">
-                  Live<span aria-hidden="true"> ↗</span>
+                  Live<ExternalArrow />
                   <span class="sr-only"> site for {project.data.title}</span>
                 </a>
               )}

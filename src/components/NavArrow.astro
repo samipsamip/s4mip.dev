@@ -1,0 +1,21 @@
+---
+import ArrowRightIcon from '../assets/icons/arrow-right.svg';
+import ArrowLeftIcon from '../assets/icons/arrow-left.svg';
+
+interface Props {
+  direction?: 'right' | 'left';
+}
+
+const { direction = 'right' } = Astro.props;
+const Icon = direction === 'left' ? ArrowLeftIcon : ArrowRightIcon;
+---
+
+<Icon
+  width={14}
+  height={14}
+  aria-hidden="true"
+  class:list={[
+    'inline-block align-[-0.1em] text-neutral-400',
+    direction === 'left' ? 'mr-0.5' : 'ml-0.5',
+  ]}
+/>
